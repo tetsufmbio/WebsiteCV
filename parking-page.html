@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title></title>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body></body>
+<br />
+
+
+
+
+
+<!-- Links/Imports -->
+<!--  Using Bootstrap for responsive design-->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+<!-- Using Google-Font -->
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+<!-- Using Bootstrap-Fonts -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+<!-- Using Animation Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  
+  
+ <!--   $("body").addClass("animated hinge"); -->
+ 
+<script>
+  $(document).ready(function() {
+
+    $("button").addClass("animated bounce");
+    
+    $("#main_pic").addClass("animated shake");
+   
+    $("button").removeClass("btn-default");
+    
+    $("#main_pic").css("border", "5px solid #021a40");
+    
+    $("#find_button").prop("disabled", true);
+    
+    $("#first_col").html("<em>replaced html-element</em>");
+    $("#third_col").text("Replace text only, without parsing html-logic");
+    $("#tester").remove();
+    
+    $("#find_button").appendTo("#text_gray");
+    
+    $("#target1").parent().css("background-color", "red");
+    $("#right-well").children().css("color", "orange");
+    
+    $(".target:nth-child(3)").addClass("animated bounce");
+  
+
+    
+
+    
+  
+
+  });
+</script>
+
+
+
+
+
+<!-- CSS -->
+<style type="text/css">.green-text {
+    color: green;
+  }
+  
+  
+  <!--Element-Declarations-->
+  h2 {
+    font-family: Lobster, Monospace;
+    color : blue;
+    }
+    
+  body{
+  	background-color: Cornsilk;
+  }
+
+  p {
+    font-size: 16px;
+    font-family: Monospace;
+  }
+  
+  <!--Classes -->
+  .thick-green-border {
+    border-color: green;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 10px;
+  }
+
+  .smaller-image {
+    width: 100px;
+  }
+
+ .silver-background {
+    background-color: silver;
+  }
+</style>
+
+
+<!--HTML-Document-->
+
+<div
+class="container-fluid text-center"
+
+>
+
+<h2>Carl Hauck</h2>
+
+<p><img id="main_pic" alt="This is me" class="smaller-image thick-green-border img-responsive center-block" src="/images/ProfilBild.jpg" /></p>
+
+<p class="green-text">Welcome to my Site! <a href="https://www.facebook.com/carl.ha2"> Facebook</a>! Isn&#39;t that cool?</p>
+<i class="fa fa-thumbs-up"></i>
+
+
+
+
+
+
+
+<div id="text_gray" class="silver-background"
+	style="margin:10%"
+
+>
+
+
+<div
+class="row"
+>
+
+
+<div id="first_col" class="col-xs-4"><p>Things I love:</p>
+<ul class="green-text">
+	<li>Android</li>
+	<li>Brasil</li>
+	<li>Sport</li>
+</ul>
+</div>
+
+
+<div class="col-xs-4"><p>Things I don't like:</p>
+<ul class="green-text">
+	<li>Android</li>
+	<li>Brasil</li>
+	<li>Sport</li>
+</ul>
+</div>
+
+
+<div id="third_col" class="col-xs-4"><p>Things I can:</p>
+<ul class="green-text">
+	<li>Android</li>
+	<li>Brasil</li>
+	<li>Sport</li>
+</ul>
+</div>
+
+
+
+<div class="row">
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+<p class="green-text">Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>
+
+
+<button id="tester">
+Remove me!</button>
+
+
+<button id="find_button"
+class="btn btn-block btn-primary"
+>
+Find me!
+</button>
+
+</html>
+</div>
