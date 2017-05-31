@@ -1,5 +1,12 @@
-// initialize SVG.js
-var draw = SVG('drawing')
+$(document).ready(function() {
+  var image = SVG('svgimage');
 
-// draw pink square
-draw.rect(100, 100).move(100, 50).fill('#f06')
+  $.get('montain_plain.svg', function(contents) {
+    var tmp = $('svg', contents);
+
+    image.svg(tmp[0].innerHTML);
+  }, 'xml');
+});
+
+var element = SVG.get('path4507')
+element.move(200,200)
