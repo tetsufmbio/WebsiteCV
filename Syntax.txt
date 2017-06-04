@@ -1,0 +1,2 @@
+window.[1,2,3] = left,main,right
+[name].[0,1,2] = main,left,right
