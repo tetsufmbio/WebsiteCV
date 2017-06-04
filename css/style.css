@@ -1,0 +1,94 @@
+h1 {
+    color : blue;
+  }
+
+body, html {
+  height:100%;
+  /*background-color:   #3399FF;*/
+}
+
+/*
+.backy1{
+  background-image : url("../svg/total/test/final/drawing02_animated.svg");
+  background-size: auto auto;
+  background-repeat: no-repeat;
+}
+*/
+
+input{display:none}
+svg{float:left;width:100px;margin:0 1px}
+label{cursor:pointer}
+svg:hover {margin-top:1px}
+
+/* For Scaling the SVG inline files to its parent container*/
+.scaleSVG {
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  width:100%;
+  /*border: 1px solid black;*/
+
+  height:100%;
+}
+/* Make elements look like a link (in this case SVG-Elements) by changing the cursor*/
+.linkCursor{
+  cursor: pointer;
+}
+.marginRow{
+    margin:0px !important;
+    padding-right:0;
+    padding-left:0;
+}
+
+.contentMain{
+      border: 1px solid black !important;
+      padding: 15px !important;
+      font-family: monospace !important;
+      font-weight: bold !important;
+      background-color:  #3399CC !important;
+      height: auto !important;
+      width : auto !important;
+      position: absolute !important;
+      top: 400px !important;
+}
+
+.contentExtra{
+      padding: 15px;
+      border-radius: 25px;
+      background-color: #0099CC;
+      position: absolute;
+      top: 0;
+      height: auto;
+      width: auto;
+}
+
+#menue{
+  position: absolute !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    width:100% !important;
+    height: 50% !important;
+}
+
+
+.window{
+}
+
+
+/* Background Gradient for Monochromatic Colors */
+.gradient4
+{
+    background-color: #458bd3;
+    /* For WebKit (Safari, Chrome, etc) */
+    background: #458bd3 -webkit-gradient(linear, left top, left bottom, from(#0B72D9), to(#458bd3)) no-repeat;
+    /* Mozilla,Firefox/Gecko */
+    background: #458bd3 -moz-linear-gradient(top, #0B72D9, #458bd3) no-repeat;
+    /* IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#0B72D9, endColorstr=#458bd3) no-repeat;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#0B72D9, endColorstr=#0B72D9)" no-repeat;
+}
+
+
+/*Here are several classes to fill svg elements*/
