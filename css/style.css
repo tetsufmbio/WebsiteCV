@@ -88,6 +88,8 @@ svg:hover {margin-top:1px}
       top: 100px;
       height: auto;
       width: auto;
+      font-family: monospace !important;
+      font-weight: bold !important;
 }
 #menue{
   position: absolute !important;
@@ -99,6 +101,29 @@ svg:hover {margin-top:1px}
 
 .hide{
   display: none;
+}
+
+/*A simple loader animation with css*/
+.loader {
+    border-top: 10px solid #7FFFD4;
+    border-right: 10px solid #6495ED;
+    border-bottom: 10px solid #ffffff;
+    border-left: 10px solid #F08080;
+    border-radius: 60%;
+    /*
+    border: 16px solid #ffffff;
+    border-top: 16px solid #458bd3;
+
+    */
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /*Here are several classes to fill svg elements*/

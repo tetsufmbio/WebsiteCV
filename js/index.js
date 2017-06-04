@@ -82,14 +82,15 @@ function clickme1(){
 
     //TODO Add here an animation, since the main animation takes so long
     document.getElementById("demo").innerHTML = "Backround?";
-    $('body').css('cursor', 'wait');
-    setTimeout(function(){$('body').css('cursor','default')}, 2200);
+    setTimeout(function(){ document.getElementById("loaderWelcome").style.display = "none"}, 2200);
+
     //welcome message
     loadContent("content2","welcome");
     show("content2");
     //Welcome fun fact
     loadContent("content1","funfact");
     show("content1");
+    beLife();
 }
 
 /*
@@ -166,3 +167,19 @@ $(document).ready(function(){
 
 
 });
+
+
+function beLife() {
+  var elem = document.getElementById("content1");
+  var pos = 0;
+  var id = setInterval(frame, 1);
+  function frame() {
+    if (pos == 200) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + 'px';
+      elem.style.left = pos + 'px';
+    }
+  }
+}
