@@ -32,6 +32,7 @@ section {
   font-size: xx-large;
   background-color: #FE4B74;
 }
+
 #previewTitle{
   color: #FFFFFF;
   display: table-cell;
@@ -74,7 +75,7 @@ svg:hover {margin-top:1px}
       font-weight: bold !important;
       background-color:  #3399CC !important;
       height: auto !important;
-      width : auto !important;
+      max-width: 300px;
       position: absolute !important;
       top: 400px !important;
       /*Toggle this for later, if you can align to row center?*/
@@ -105,6 +106,7 @@ svg:hover {margin-top:1px}
 
 /*A simple loader animation with css*/
 .loader {
+    /*border-top: 10px solid #eb7a26;*/
     border-top: 10px solid #7FFFD4;
     border-right: 10px solid #6495ED;
     border-bottom: 10px solid #ffffff;
@@ -126,4 +128,28 @@ svg:hover {margin-top:1px}
     100% { transform: rotate(360deg); }
 }
 
-/*Here are several classes to fill svg elements*/
+/*Styles for content.html*/
+
+#heart2{
+  display: inline-block !important;
+  color: "red" !important;
+  width: 200px;
+  height: 200px;
+}
+
+#heart1Image{
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#table1{
+  max-width: 10px%;
+  table-layout: fixed;
+  word-wrap: break-word;
+  color: "green";
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color:#eb7a26;
+}

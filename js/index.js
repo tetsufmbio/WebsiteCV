@@ -61,6 +61,21 @@ function loadContent(id,source){
   $("#"+id).load(tmp);
 }
 
+
+//This is only for group elements in SVGs!, special (fun): apply to each element a random color
+function changeColor(id,color){
+
+  if(color == "special"){
+
+  $("#"+id).children().each(function() {
+    $(this).css( "stroke", getRandomColor());
+  });
+}
+else {
+  $( "#"+id ).children().css( "stroke", color);
+}
+}
+
 /*
 function toggle(id){
   var style = document.getElementById(id).style.display;
@@ -115,19 +130,48 @@ function artist1(){
   //LOG
   document.getElementById("demo").innerHTML = "artist clicked me";
   //Create visual click response
-  acirc.style.stroke="blue"
-  bcirc.style.stroke="red"
-  ccirc.style.stroke="green"
+  acirc.style.stroke="blue";
+  bcirc.style.stroke="red";
+  ccirc.style.stroke="#eb7a26";
+
+  line5777.style.stroke="red";
+  line5755.style.stroke="red";
+  line5757.style.stroke="red";
+  line5759.style.stroke="#22b70b";
+  path5761.style.stroke="#22b70b";
+  line5763.style.stroke="#22b70b";
+  line5765.style.stroke="#dbd118";
+  line5767.style.stroke="#dbd118";
+  line5769.style.stroke="#dbd118";
+  path5771.style.stroke="blue";
+  line5773.style.stroke="blue";
+  line5775.style.stroke="blue";
+  changeColor("artist1","special");
   show("window1");
+  loadContent("content2","artist2");
+
 }
 
 function dev1() {
   //Create visual click response
-  alin.style.stroke="blue"
-  blin.style.stroke="red"
-  clin.style.stroke="green"
+  alin.style.stroke="#eb7a26";
+  blin.style.stroke="red";
+  clin.style.stroke="#eb7a26";
+  lowergreen1.style.stroke="#14d114";
+  changeColor("dev1","special");
+  changeColor("root1","special");
   show("window2");
+  loadContent("content2","dev2");
 }
+
+function heart1(){
+changeColor("outercircle1","special");
+changeColor("solid2","special");
+loadContent("content2","heart2");
+//reload for animation
+show("solid2");
+}
+
 
 function musician1(){
   loadContent("content2","musician2");
@@ -168,6 +212,16 @@ $(document).ready(function(){
 
 });
 
+
+
+function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++ ) {
+          color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+  }
 
 function beLife() {
   var elem = document.getElementById("content1");
