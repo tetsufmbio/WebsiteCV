@@ -62,22 +62,22 @@ svg:hover {margin-top:1px}
 
 }
 .marginRow{
-    margin:0px !important;
+    margin:0px;
     padding-right:0;
     padding-left:0;
     text-align: center;
 }
 
 .contentMain{
-      border: 1px solid black !important;
-      padding: 15px !important;
-      font-family: monospace !important;
-      font-weight: bold !important;
-      background-color:  #3399CC !important;
-      height: auto !important;
+      border: 1px solid black ;
+      padding: 15px ;
+      font-family: monospace;
+      font-weight: bold;
+      background-color:  #3399CC;
+      height: auto;
       max-width: 300px;
-      position: absolute !important;
-      top: 400px !important;
+      position: absolute;
+      top: 400px;
       /*Toggle this for later, if you can align to row center?*/
       min-width : 100% ;
 }
@@ -89,15 +89,15 @@ svg:hover {margin-top:1px}
       top: 100px;
       height: auto;
       width: auto;
-      font-family: monospace !important;
-      font-weight: bold !important;
+      font-family: monospace;
+      font-weight: bold;
 }
 #menue{
-  position: absolute !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    width:100% !important;
-    height: 50% !important;
+  position: absolute;
+    bottom: 0;
+    right: 0;
+    width:100% ;
+    height: 50%;
 }
 
 .hide{
@@ -131,8 +131,8 @@ svg:hover {margin-top:1px}
 /*Styles for content.html*/
 
 #heart2{
-  display: inline-block !important;
-  color: "red" !important;
+  display: inline-block;
+  color: "red";
   width: 200px;
   height: 200px;
 }
@@ -152,4 +152,110 @@ svg:hover {margin-top:1px}
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color:#eb7a26;
+}
+
+/*Style for custom timeline based on pen: QNeJgR
+https://webdesign.tutsplus.com/tutorials/building-a-vertical-timeline-with-css-and-a-touch-of-javascript--cms-26528
+
+TODO Add the animation part
+*/
+/*line connection, here we convert one bullet entry to a white filled box which looks like a straight line*/
+.chronic ul li {
+  list-style-type: none;
+  position: relative;
+  width: 10px;
+  margin: 0 auto;
+  background: #fff;
+  font-family:sans-serif;
+  /*gap between bullet-nobullet*/
+  padding-top: 5px;
+  /*background-image : url("../svg/total/test/final/things/plant.svg");
+  background-size: auto auto;
+  background-repeat: no-repeat;
+  */
+}
+
+.chronic ul {
+  width: 100%;
+}
+
+/*dont make a node for the first-child*/
+.chronic ul li:first-child {
+  padding-top: 50px;
+}
+
+/*point, for that bullet element we remain the attribute but remove the content*/
+.chronic ul li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  /*center points*/
+  transform: translateX(-50%);
+  left: 50%;
+  /*point dims*/
+  width: 30px;
+  height: 30px;
+  /*make a point/quader*/
+  border-radius: 20%;
+  background: inherit;
+}
+
+/*Acessing the div element which is the text field*/
+.chronic ul li div {
+  position: relative;
+  bottom: 0;
+  /*TODO This is very hacky! Find another solution*/
+  width: 2000%;
+  box-shadow: inset 0px 0px 50px 37px #3399CC;
+  padding: 35px;
+  color: white;
+  font-family: sans-serif;
+  background-color:rgba(235,122,3,0.8);
+
+  /*background: #F45B69;*/
+}
+/*non text field*/
+.chronic ul li div::before {
+  content: '';
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/*Styling odd and even elements*/
+/*
+1) Padding from line
+2) Mirroring even elements
+3) Adding form to text field with pseudo-element
+4) Styling boxes
+*/
+.chronic ul li:nth-child(odd) div {
+  left: 45px;
+}
+
+.chronic ul li:nth-child(odd) div::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #F45B69 transparent transparent;
+}
+
+.chronic ul li:nth-child(even) div {
+  left: -240px;
+}
+
+.chronic ul li:nth-child(even) div::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #F45B69;
+}
+.chronic ul li div time {
+  font-weight: bold !important;
+}
+
+/*Adding newline after time*/
+.chronic ul li div time::after{
+  content: "\A";
+  white-space: pre;
 }
