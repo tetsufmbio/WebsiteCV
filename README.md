@@ -9,3 +9,9 @@ Para a materia BIQ56-02 na UFMG.
 2. *Inkscape*, for creating/naming groups, arranging elements
 3. [vivus](https://maxwellito.github.io/vivus/) ~ a lightweight JavaScript class for path animations
 4. Several thrird party libraries for layout, fonts and animations
+
+
+#### Questions
+1) The middle row is not in the center, what is the problem?
+2) Experience with sass, e.g. value-vars,nesting inheritance looks great...
+3) How to avoid that the middle content box is not going into the section2
