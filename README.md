@@ -15,3 +15,14 @@ Para a materia BIQ56-02 na UFMG.
 1) The middle row is not in the center, what is the problem?
 2) Experience with sass, e.g. value-vars,nesting inheritance looks great...
 3) How to avoid that the middle content box is not going into the section2
+4) change designer
+
+
+
+#### Concept
+1) The overall naming logic is defined by group-ids (several groups can have a parent group/-id, svg-root-id is also considered as group-id)
+2) To make a svg-element with <ID> clickable perform the following steps
+  a) add class="clickable"
+  b) To answer an fired click-event use the method '<ID>()' in the js-File
+  x) additional:
+    - all svg-element/root-element has to be hidden first (add class="hide"), element will be shown with its button elements through the method 'show("svg-element-id")'

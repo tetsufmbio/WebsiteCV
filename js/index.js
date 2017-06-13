@@ -11,11 +11,7 @@ $(document).keydown(function(event) {
 if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
         event.preventDefault();
      }
-    // 107 Num Key  +
-    // 109 Num Key  -
-    // 173 Min Key  hyphen/underscor Hey
-    // 61 Plus key  +/= key
-});
+  });
 
 /*
 //Disable scroll
@@ -46,14 +42,24 @@ function rm(id){
 
 function show(id){
   $("#"+id).removeClass('hide');
+  //Create buttons if available
+  //if you have no hide and have class clickable, make button for that id
+  $("#"+id).children().each(function() {
+    //if this class is still hidden we don`t want to show buttons &&
+    if(!($(this).hasClass( "hide" )) &&  $(this).hasClass( "clickable" ) ){
+      var cId= $(this).attr('id');
+      makeButton(cId);
+    }
+  });
   //Reloading svg to document again (otherwise not working in Chrome)
   //checks if passed id is an svg-element or an svg-root-element
   if($( "#"+id ).hasClass( "scaleSVG" ) || $( "#"+ $("#"+id).closest('svg').attr('id')).hasClass( "scaleSVG" )){
   var element = document.querySelector("#"+id);
   var cloneElement = element.cloneNode(true);
   element.parentNode.replaceChild(cloneElement, element);
-  }
 }
+}
+
 //loads html content to specified div
 function loadContent(id,source){
   var tmp ="content.html";
@@ -66,39 +72,75 @@ function loadContent(id,source){
 function changeColor(id,color){
 
   if(color == "special"){
-
-  $("#"+id).children().each(function() {
-    $(this).css( "stroke", getRandomColor());
-  });
+    $("#"+id).children().each(function() {
+      $(this).css( "stroke", getRandomColor());
+    });
 }
 else {
   $( "#"+id ).children().css( "stroke", color);
 }
 }
 
-/*
-function toggle(id){
-  var style = document.getElementById(id).style.display;
-  if(style === "none")
-  document.getElementById(id).style.display = "block";
-  else
-  document.getElementById(id).style.display = "none";
+/*Appends to to group with id 'id' a clickable rectangle which is clickable (via the function id())*/
+function makeButton(id){
+  //defs
+  var  svgns = "http://www.w3.org/2000/svg";
+
+  //Getting dims
+  var  group = document.getElementById(id);
+  var bbox = group.getBBox();
+
+  //creating clickable rectangle
+  var  rect = document.createElementNS(svgns, "rect");
+  rect.setAttribute("x",  bbox.x);
+  rect.setAttribute("y",  bbox.y);
+  rect.setAttribute("width", bbox.width);
+  rect.setAttribute("height", bbox.height);
+  rect.setAttribute("fill", "#ccc");
+  rect.setAttribute("fill-opacity", ".0");
+  rect.setAttribute("stroke-opacity", ".0");
+  rect.setAttribute("onclick",id+"()");
+  rect.setAttribute("style","cursor: pointer;");
+  //Append to group
+  group.appendChild(rect);
 }
-*/
+
+
+
+function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++ ) {
+          color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+}
+
+function beLife() {
+  var elem = document.getElementById("content1");
+  var pos = 0;
+  var id = setInterval(frame, 1);
+  function frame() {
+    if (pos == 200) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + 'px';
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+
 
 //SVG listeners: Will be called when on element is clicked, function has the same name as the element id
 function clickme1(){
-  //worked
-    document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
     //remove click button
     rm("clickme1");
     //Start rest of animation
     show("animation1");
-
     //TODO Add here an animation, since the main animation takes so long
     document.getElementById("demo").innerHTML = "Backround?";
     setTimeout(function(){ document.getElementById("loaderWelcome").style.display = "none"}, 2200);
-
     //welcome message
     loadContent("content2","welcome");
     show("content2");
@@ -108,24 +150,6 @@ function clickme1(){
     beLife();
 }
 
-/*
-function cursorGame(count){
-  for (i = 0; i < count; i++) {
-    if(i%3 == 0){
-      setTimeout(function(){$('body').css('cursor','n-resize')}, i*2);
-    } else if (i%5 == 0) {
-    setTimeout(function(){$('body').css('cursor','e-resize')}, i*2);
-    }else if (i%7 == 0) {
-    setTimeout(function(){$('body').css('cursor','s-resize')}, i*2);
-    }else if (i%11 == 0) {
-    setTimeout(function(){$('body').css('cursor','w-resize')}, i*2);
-    }
-    }
-  }
-*/
-
-
-//Click listeners
 function artist1(){
   //LOG
   document.getElementById("demo").innerHTML = "artist clicked me";
@@ -133,23 +157,9 @@ function artist1(){
   acirc.style.stroke="blue";
   bcirc.style.stroke="red";
   ccirc.style.stroke="#eb7a26";
-
-  line5777.style.stroke="red";
-  line5755.style.stroke="red";
-  line5757.style.stroke="red";
-  line5759.style.stroke="#22b70b";
-  path5761.style.stroke="#22b70b";
-  line5763.style.stroke="#22b70b";
-  line5765.style.stroke="#dbd118";
-  line5767.style.stroke="#dbd118";
-  line5769.style.stroke="#dbd118";
-  path5771.style.stroke="blue";
-  line5773.style.stroke="blue";
-  line5775.style.stroke="blue";
   changeColor("artist1","special");
   show("window1");
   loadContent("content2","artist2");
-
 }
 
 function dev1() {
@@ -172,7 +182,6 @@ loadContent("content2","heart2");
 show("solid2");
 }
 
-
 function musician1(){
   loadContent("content2","musician2");
   loadContent("content1","musician1");
@@ -194,46 +203,7 @@ function bioinformatician1(){
 
 
 
-
 //This is loaded when webpage is displayed
 $(document).ready(function(){
-
-  /*
-  $( "#buttonSpace" ).mouseover(function() {
-    document.getElementsByTagName("body")[0].style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
-  });
-
-  $( "#buttonSpace" ).mouseleave(function() {
-    $('body').css('cursor', 'default');
-    document.getElementById("demo").innerHTML = "Leaving";
-  });
-  */
-
-
-});
-
-
-
-function getRandomColor() {
-      var letters = '0123456789ABCDEF';
-      var color = '#';
-      for (var i = 0; i < 6; i++ ) {
-          color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-  }
-
-function beLife() {
-  var elem = document.getElementById("content1");
-  var pos = 0;
-  var id = setInterval(frame, 1);
-  function frame() {
-    if (pos == 200) {
-      clearInterval(id);
-    } else {
-      pos++;
-      elem.style.top = pos + 'px';
-      elem.style.left = pos + 'px';
-    }
-  }
-}
+  show("menue");
+}); //End document.ready
