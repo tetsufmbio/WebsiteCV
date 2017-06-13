@@ -21,8 +21,7 @@ Para a materia BIQ56-02 na UFMG.
 
 #### Concept
 1) The overall naming logic is defined by group-ids (several groups can have a parent group/-id, svg-root-id is also considered as group-id)
-2) To make a svg-element with <ID> clickable perform the following steps
-  a) add class="clickable"
-  b) To answer an fired click-event use the method '<ID>()' in the js-File
-  x) additional:
-    - all svg-element/root-element has to be hidden first (add class="hide"), element will be shown with its button elements through the method 'show("svg-element-id")'
+2) To make a svg-element with *ID* clickable perform the following steps
+  ⋅⋅* add class="clickable"
+  ⋅⋅* To answer an fired click-event use the method *ID*()' in the js-File
+  ⋅⋅* additional: all svg-element/root-element has to be hidden first (add class="hide"), element will be shown with its button elements through the method 'show("svg-element-id")'
